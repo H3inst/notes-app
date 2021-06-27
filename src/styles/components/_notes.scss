@@ -1,0 +1,46 @@
+.notes__main-content {
+  display: flex;
+
+  .notes__sidebar {
+    width: 450px;
+    height: 100vh;
+  }
+
+  .divider {
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  .list-group-item {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 0;
+  }
+
+  .note__input-title {
+    width: 100%;
+    height: 60px;
+    border: none;
+    font-size: 20px;
+    padding: 0px 20px;
+    font-weight: 700;
+    outline: none;
+  }
+
+  .note__input-desc {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+}
+
+.loader {
+  background: rgba($color: white, $alpha: 0.7);
+  z-index: 10;
+}

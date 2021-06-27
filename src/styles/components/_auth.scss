@@ -1,0 +1,22 @@
+.auth__main {
+  align-items: center;
+  background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+
+  .auth__box-container {
+    width: 400px;
+    padding: 30px 40px;
+
+    input {
+      background: #F0F1F6;
+      border: none;
+      height: 50px;
+    }
+
+    .text-decoration-underline {
+      cursor: pointer;
+    }
+  }
+}
