@@ -1,4 +1,4 @@
-import React from 'react';
+// import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 
@@ -33,9 +33,11 @@ export const Sidebar = () => {
         className={`list-group-item list-group-item-action border-bottom ${currentNote}`}
         onClick={handleActiveNote}
       >
-        <span className="fw-bold fs-4">My first note</span>
+        <span className="fw-bold fs-4">
+          {title.length > 30 ? title.substring(0, 30) + '...' : title}
+        </span>
         <span style={{ fontWeight: '500' }}>
-          This is the description of my note
+          {desc.length > 40 ? desc.substring(0, 40) + '...' : desc}
         </span>
         <small>{formatDate.format('DD/MM/YYYY')}</small>
       </button>

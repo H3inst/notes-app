@@ -3,13 +3,20 @@
 
   .notes__sidebar {
     width: 450px;
+    max-width: 450px;
     height: 100vh;
+    overflow: hidden;
   }
 
   .divider {
     height: 40px;
     display: flex;
     align-items: center;
+  }
+
+  .list-group {
+    height: calc(100vh - 70px);
+    overflow-y: scroll;
   }
 
   .list-group-item {
@@ -41,6 +48,6 @@
 }
 
 .loader {
-  background: rgba($color: white, $alpha: 0.7);
+  background: rgba($color: $primary-color, $alpha: 0.7);
   z-index: 10;
 }
