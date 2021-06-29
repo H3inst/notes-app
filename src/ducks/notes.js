@@ -129,6 +129,7 @@ export const startSaveNote = (note) => async (dispatch, getState) => {
     delete noteToFirestore.id;
     await db.doc(`${uid}${JOURNAL}${NOTES}/${note.id}`).update(noteToFirestore);
     dispatch(refreshNote(note));
+    dispatch(startLoadNotes(uid));
 
   } catch (error) {
     const { message } = error;
@@ -151,7 +152,7 @@ export const startDeleteNote = (id) => async (dispatch, getState) => {
   } catch (error) {
     console.log(error);
     dispatch(finishLoading());
-    
+
   } finally {
     dispatch(finishLoading());
   }
