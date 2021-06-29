@@ -1,4 +1,5 @@
 import { firebase, googleAuthProvider } from '../config/firebase';
+import { notesLogoutCleaning } from './notes';
 import { finishLoading, setError, setLoading } from './ui';
 
 const INITIAL_STATE = {};
@@ -28,6 +29,12 @@ export const login = (uid, displayName) => {
   return {
     type: AUTH_LOGIN,
     payload: { uid, displayName },
+  };
+};
+
+export const logout = () => {
+  return {
+    type: AUTH_LOGOUT,
   };
 };
 
@@ -88,16 +95,11 @@ export const registerWithEmailPassword =
 export const startLogout = () => async (dispatch) => {
   try {
     await firebase.auth().signOut();
+    dispatch(notesLogoutCleaning());
     dispatch(logout());
     
   } catch (error) {
     const { message } = error;
     dispatch(setError(message));
   }
-};
-
-export const logout = () => {
-  return {
-    type: AUTH_LOGOUT,
-  };
 };

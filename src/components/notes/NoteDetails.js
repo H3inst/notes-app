@@ -4,7 +4,7 @@ import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useForm } from '../../hooks/useForm';
-import { activeNote, startSaveNote } from '../../ducks/notes';
+import { activeNote, startDeleteNote, startSaveNote } from '../../ducks/notes';
 
 const NoteDetails = () => {
   const { active: note } = useSelector((state) => state.notes);
@@ -30,6 +30,10 @@ const NoteDetails = () => {
   const handleSave = () => {
     dispatch(startSaveNote({ ...values }));
   };
+
+  const handleDelete = () => {
+    dispatch(startDeleteNote(id));
+  }
 
   return (
     <div className="h-100 overflow-hidden">
@@ -58,7 +62,7 @@ const NoteDetails = () => {
           </button>
           <button
             className="btn btn-secondary"
-            onClick={handleSave}
+            onClick={handleDelete}
             disabled={loading}
           >
             <span>Delete</span>
