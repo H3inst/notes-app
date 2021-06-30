@@ -34,9 +34,11 @@ export const Sidebar = () => {
         onClick={handleActiveNote}
       >
         <span className="fw-bold fs-4">
+          {title.length === 0 && 'Empty title'}
           {title.length > 30 ? title.substring(0, 30) + '...' : title}
         </span>
         <span style={{ fontWeight: '500' }}>
+          {desc.length === 0 && 'Empty description'}
           {desc.length > 40 ? desc.substring(0, 40) + '...' : desc}
         </span>
         <small>{formatDate.format('DD/MM/YYYY')}</small>

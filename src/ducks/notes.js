@@ -12,7 +12,6 @@ const JOURNAL = '/journal';
 const NOTES = '/notes';
 
 // Types
-// const NOTES_ADD_NOTE = 'NOTES_ADD_NOTE';
 const NOTES_ACTIVE_NOTE = 'NOTES_ACTIVE_NOTE';
 const NOTES_LOAD_NOTE = 'NOTES_LOAD_NOTE';
 const NOTES_UPDATE_NOTE = 'NOTES_UPDATE_NOTE';
