@@ -50,9 +50,9 @@ export const Sidebar = () => {
     <div className="notes__sidebar border-end">
       <div className="d-flex flex-column p-4">
         <div className="d-flex justify-content-between mb-4">
-          <span className="fw-bold fs-4 text-muted">What's up {name}</span>
+          <span className="fw-bold fs-4 text-black-50">What's up {name}</span>
           <button
-            className="btn btn-secondary text-muted"
+            className="btn btn-secondary text-black-50"
             onClick={handleLogout}
           >
             <i className="fas fa-sign-out-alt"></i>

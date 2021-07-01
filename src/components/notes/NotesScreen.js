@@ -8,11 +8,11 @@ import { Loader } from '../loader/loader';
 
 export const NotesScreen = () => {
   const { active } = useSelector((state) => state.notes);
-  const { loading }  = useSelector((state) => state.ui)
+  const { loading } = useSelector((state) => state.ui);
 
   return (
     <div className="notes__main-content">
-      {loading && <Loader /> }
+      {loading && <Loader />}
       <Sidebar />
       <main>{active ? <NoteDetails /> : <Unselected />}</main>
     </div>

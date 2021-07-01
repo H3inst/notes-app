@@ -33,7 +33,7 @@ const NoteDetails = () => {
 
   const handleDelete = () => {
     dispatch(startDeleteNote(id));
-  }
+  };
 
   return (
     <div className="h-100 overflow-hidden">

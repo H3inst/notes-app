@@ -96,14 +96,23 @@ export const notesLogoutCleaning = () => {
 };
 
 export const newNote = () => async (dispatch, getState) => {
-  const { uid } = getState().auth;
-  const newNote = {
-    title: '',
-    desc: '',
-    date: new Date().getTime(),
-  };
-  const doc = await db.collection(`${uid}${JOURNAL}${NOTES}`).add(newNote);
-  dispatch(activeNote(doc.id, newNote));
+  try {
+    dispatch(setLoading());
+    const { uid } = getState().auth;
+    const newNote = {
+      title: '',
+      desc: '',
+      date: new Date().getTime(),
+    };
+    const doc = await db.collection(`${uid}${JOURNAL}${NOTES}`).add(newNote);
+    dispatch(activeNote(doc.id, newNote));
+    dispatch(startLoadNotes(uid));
+
+  } catch (error) {
+    const { message } = error;
+    dispatch(setError(message));
+    dispatch(finishLoading());
+  }
 };
 
 export const startLoadNotes = (uid) => async (dispatch) => {
@@ -113,7 +122,9 @@ export const startLoadNotes = (uid) => async (dispatch) => {
     dispatch(setNotes(notes));
 
   } catch (error) {
-    console.log(error);
+    const { message } = error;
+    dispatch(setError(message));
+    dispatch(finishLoading());
 
   } finally {
     dispatch(finishLoading());
@@ -149,7 +160,8 @@ export const startDeleteNote = (id) => async (dispatch, getState) => {
     dispatch(deleteNote(id));
 
   } catch (error) {
-    console.log(error);
+    const { message } = error;
+    dispatch(setError(message));
     dispatch(finishLoading());
 
   } finally {
